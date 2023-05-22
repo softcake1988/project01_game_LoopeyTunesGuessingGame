@@ -1,0 +1,50 @@
+
+
+
+SONG 1
+
+Interpret:  Scorpions
+Song Title: Rock You Like A Huricane
+Answer 1:   Jani
+Answer 2:   Luis
+Answer 3:   Nuno    (correct answer)
+Answer 4:   Ale
+
+SONG 2
+
+Interpret:  Black
+Song Title: Wonderful Life
+Answer 1:   Lina
+Answer 2:   Solideo
+Answer 3:   Mary
+Answer 4:   Eirik   (correct answer)
+
+
+SONG 3
+
+Interpret:  Erykah Badu
+Song Title: Didn't Cha Know
+Answer 1:   Joao
+Answer 2:   Felipe  (correct answer)
+Answer 3:   Ola
+Answer 4:   Gokce
+
+
+SONG 4
+
+Interpret:  Ed Sheeran
+Song Title: Shape Of You
+Answer 1:   Marco
+Answer 2:   Maria
+Answer 3:   Luis    (correct answer)
+Answer 4:   Jani
+
+
+SONG 5
+
+Interpret:  The Vandals
+Song Title: Don't Stop Me Now
+Answer 1:   Ale     (correct answer)
+Answer 2:   Djamel
+Answer 3:   Philippe
+Answer 4:   Emily
