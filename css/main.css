@@ -60,6 +60,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    overflow: hidden;
    
 }
 
@@ -86,7 +87,7 @@ body {
     border: 1em;
     width: 30vw;
     height: 15vh;
-    font-size: larger;
+    font-size: 80%;
     background-color: beige;
     color: black;
     border-radius: 0.5em;
@@ -103,12 +104,15 @@ body {
     height: 15vh;
 }
 
+
 .answer-button {
     width: 15vw;
     border-radius: 0.5em;
     border: 0.1em solid beige;
     background-color: black;
+    color: antiquewhite;
 }
+
 
 .answer-button:hover {
     cursor: pointer;
