@@ -23,7 +23,7 @@ body {
 #song-number {
     background-color: beige;
     width: 15vw;
-    height: 20vh;
+    height: 12vh;
     border-radius: 0.5em;
     border: 0.1em solid beige;
     color: black
@@ -51,7 +51,7 @@ body {
 #player-points {
     background-color: beige;
     width: 15vw;
-    height: 20vh;
+    height: 12vh;
     border-radius: 0.5em;
     border: 0.1em solid beige;
     color: black
@@ -77,7 +77,8 @@ body {
 
 #player-button {
     display: flexbox;
-    width: 40%;
+    width: 50%;
+    font
 }
 
 #player-button:hover {
@@ -88,9 +89,9 @@ body {
 .song-info-box {
     border-color: beige;
     border: 1em;
-    width: 30vw;
+    width: 50vw;
     height: 15vh;
-    font-size: 80%;
+    font-size: x-large;
     background-color: beige;
     color: black;
     border-radius: 0.5em;
