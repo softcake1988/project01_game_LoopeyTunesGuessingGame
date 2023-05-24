@@ -51,64 +51,64 @@ const songs = [
   },
 ];
 
-for(let i = 0, i < songs.length, i++) {
-  
-}
-
-
-
 class Game {
   constructor() {
     this.player = null;
     this.points = 0;
     this.round = 1;
-   // this.song = songs[];
+    this.song = songs[0];
+    this.answerChecked = false;
+    this.pointsUpdated = false;
+
   }
 
   start() {
     const playMusicBtn = document.querySelector(".spotify-button");
     // const pauseMusicBtn = document.querySelector(".spotify-button");
 
-    //playMusicBtn.addEventListener("click", this.playMusic); // invokes play music method
-    playMusicBtn.addEventListener("click", this.displaySongInfo); // invokes play music method
-    playMusicBtn.addEventListener("click", this.displayAnswers); // invokes play music method
+    playMusicBtn.addEventListener("click", () => this.playMusic()); // invokes play music method
+    playMusicBtn.addEventListener("click", () => this.displaySongNumber()); // invokes play music method
+    playMusicBtn.addEventListener("click", () => this.displayPlayerPoints()); // invokes play music method
+
+    playMusicBtn.addEventListener("click", () => this.displaySongInfo()); // invokes play music method
+    playMusicBtn.addEventListener("click", () => this.displayAnswers()); // invokes play music method
 
     const answerBtnArr = document.querySelectorAll(".answer-button"); // invokes checkAnswers method
     answerBtnArr.forEach((button) => {
-      button.addEventListener("click", this.checkAnswers)
+      button.addEventListener("click", (event) => this.checkAnswers(event));
+      button.addEventListener("click", () => this.stopMusic());
     })
-
-    answerBtnArr.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        const currentSong = songs[0];
-        const correctAnswer = currentSong.correctAnswer;
-
-        if (event.target.innerHTML === 'Yay! Correct answer!') {
-          this.updatePoints();
-        }
-      });
-    });
-
-  
-  }
+   //invokes stop music method
  
-  
+  };
 
   playMusic() {
-    const currentSong = songs[0];
+    const currentSong = this.song;
     const audio = new Audio(currentSong.audio);
-
     audio.play(); 
   }
-    
+
+  displaySongNumber() {
+    const currentSong = this.song;
+    const songNumber = document.querySelector("#song-number"); 
+    songNumber.textContent = `Song ${this.round} / 5`;
+  }
+
+  displayPlayerPoints() {
+    const currentSong = this.song;
+    const playerPoints = document.querySelector("#player-points"); 
+    playerPoints.textContent = `Points: ${this.points}`;
+  }
+
   displaySongInfo() {
-    const currentSong = songs[0];
+    console.log(this.song);
+    const currentSong = this.song;
     const songInfo = document.querySelector(".song-info-box"); 
     songInfo.textContent = `Interpret: ${currentSong.interpret} Song: ${currentSong.songTitle}`;
   }
 
   displayAnswers() {
-    const currentSong = songs[0];
+    const currentSong = this.song;
     const answerOption1 = document.querySelector("#answer1");
     const answerOption2 = document.querySelector("#answer2");
     const answerOption3 = document.querySelector("#answer3");
@@ -123,36 +123,86 @@ class Game {
   }
 
   checkAnswers(event) {
-    const currentSong = songs[0];
-    const correctAnswer = currentSong.correctAnswer;
- 
-    if(event.target.innerHTML === correctAnswer) {
+    let userAnswer = "";
+    const currentSong = this.song;
+    
+    if(event.target.classList[0] === "answer-button"){
+      userAnswer = event.target.children[0].innerText;
+    }
+      userAnswer = event.target.innerText;
+    
+    const btnArr = document.querySelectorAll(".answer-button").forEach((btn) => {
+      btn.disabled = true; // disable button after one click
+    })
+
+
+    if(userAnswer === currentSong.correctAnswer) {
   
-      event.target.innerHTML = 'Yay! Correct answer!';
-      event.target.style.color = 'green';
-      this.points++;
+      event.target.innerText = 'Yay! Correct answer!';
+      event.target.style.color = 'beige';
+      event.target.style.backgroundColor = 'green';
+      this.updatePoints();
 
     } else {
-      event.target.innerHTML = 'Sorry! Wrong answer!';
-      event.target.style.color = 'red';
+      event.target.innerText = 'Sorry! Wrong answer!';
+      event.target.style.color = 'beige';
+      event.target.style.backgroundColor = 'red';
     }
+    this.answerChecked = true;
 
+    setTimeout(() => {
+      console.log('timeout');
+      this.startNextRound();
+     }, 4000);
+
+     stopMusic(() => {
+      const currentSong = this.song;
+      const audio = new Audio(currentSong.audio);
+      audio.pause();
+      audio.currentTime = 0;
+     });
+    
     }
 
   updatePoints() {
     this.points++;
+    this.pointsUpdated = true;
+
   } 
 
-  moveToNextRound() {
-    if (this.checkAnswers && this.updatePoints) {
-      //start new Round
+  startNextRound() {
+    if (this.answerChecked === true && this.pointsUpdated === true) {
+    
+      if (this.round < songs.length) {
+      this.round++;
+      this.stopMusic();
+      this.song = songs[this.round - 1];
+      this.displaySongNumber();
+      this.displayPlayerPoints();
+      this.displaySongInfo();
+      this.displayAnswers();
+      this.playMusic();
+      btn.disabled = false;
+      button.innerText = ""; 
+      button.style.color = "";
+      button.style.backgroundColor = "";
+    } else {
+      this.showResult();
     }
+   }
+      this.answerChecked = false;
+      this.pointsUpdated = false;
+  }
+
+  showResult() {
+    console.log("Game Over");
   }
 
 }
 
-const newGame = new Game();
+const newGame = new Game(songs);
 newGame.start();
+
 
 
 // replicating code for all 5 rounds

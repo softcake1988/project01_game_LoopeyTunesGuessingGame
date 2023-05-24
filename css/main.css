@@ -4,65 +4,68 @@ body {
     padding: 0;
     margin: 0;
 }
-
 .content-container {
     display: flex;
     flex-direction: column;
-    
-}
-
-.header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-
-}
-
-.headline {
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-}
-
-#spotify-playlist-logo {
-    height: auto;
-    width: 20%;
-    border-radius: 0.5em;
-    opacity: 0.6;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-left: 3%;
-    margin-right: 3%;
-    
-}
-
-.song-container {
-    height: 50%;
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
-    margin-top: 5%;
-    margin-left: 3%;
-    padding: 3%;
+    align-content: space-between;
+    padding: 2%;
+    
 }
+
+.songnumber-info-points-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+#song-number {
+    background-color: beige;
+    width: 15vw;
+    height: 20vh;
+    border-radius: 0.5em;
+    border: 0.1em solid beige;
+    color: black
+}
+
 
 .click-info-box {
-    width: 20vw;
+    width: 40vw;
     height: 12vh;
     border-radius: 0.5em;
     border: 0.1em solid rgb(43, 131, 15);
     background-color: black;
-    font-size: small;
-    padding: 1%;
     color: beige;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     overflow: hidden;
-   
 }
+
+#text-click-button {
+    padding: 3%;
+    
+}
+
+#player-points {
+    background-color: beige;
+    width: 15vw;
+    height: 20vh;
+    border-radius: 0.5em;
+    border: 0.1em solid beige;
+    color: black
+}
+
+.song-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: -6%;
+    padding: 3%;
+}
+
 
 .spotify-button {
     background-color: transparent;
@@ -101,7 +104,9 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-content: space-evenly;
     height: 15vh;
+    width: 100vw;
 }
 
 
