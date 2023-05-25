@@ -50,7 +50,9 @@ const songs = [
     correctAnswer: "Ale",
   },
 ];
+
 const btnArr = document.querySelectorAll(".answer-button");
+
 class Game {
   constructor() {
     this.player = null;
@@ -64,11 +66,11 @@ class Game {
 
   start() {
     const playMusicBtn = document.querySelector(".spotify-button");
+    playMusicBtn.addEventListener("click", () => this.playMusic()); // invokes play music method
     // const pauseMusicBtn = document.querySelector(".spotify-button");
 
-    playMusicBtn.addEventListener("click", () => this.playMusic()); // invokes play music method
-    playMusicBtn.addEventListener("click", () => this.displaySongNumber()); // invokes play music method
-    playMusicBtn.addEventListener("click", () => this.displayPlayerPoints()); // invokes play music method
+    this.displaySongNumber();
+    this.displayPlayerPoints();
 
     playMusicBtn.addEventListener("click", () => this.displaySongInfo()); // invokes play music method
     playMusicBtn.addEventListener("click", () => this.displayAnswers()); // invokes play music method
@@ -87,27 +89,25 @@ class Game {
     this.audio = new Audio(currentSong.audio);
     this.audio.play();
 
-    this.audio.volume = 0;
+    this.audio.volume = 0.3;
   }
 
   displaySongNumber() {
     const currentSong = this.song;
     const songNumber = document.querySelector("#song-number");
-    songNumber.textContent = `SONG ${this.round} / 5`;
-    
+    songNumber.innerHTML = `SONG<br> ${this.round} / 5`;
   }
 
   displayPlayerPoints() {
     const currentSong = this.song;
     const playerPoints = document.querySelector("#player-points");
-    playerPoints.textContent = `POINTS: ${this.points}/ 5`;
+    playerPoints.innerHTML = `POINTS<br> ${this.points} / 5`;
   }
 
   displaySongInfo() {
-    console.log(this.song);
     const currentSong = this.song;
     const songInfo = document.querySelector(".song-info-box");
-    songInfo.textContent = `Interpret: ${currentSong.interpret}\nSong: ${currentSong.songTitle}`;
+    songInfo.innerHTML = `Interpret: ${currentSong.interpret}<br>Song: ${currentSong.songTitle}`;
   }
 
   displayAnswers() {
@@ -141,7 +141,6 @@ class Game {
     console.log(event);
 
     if (userAnswer === currentSong.correctAnswer) {
-
       if (isButton) {
         event.target.children[0].innerText = "Yay! Correct answer!";
         event.target.children[0].style.color = "beige";
@@ -154,27 +153,25 @@ class Game {
 
       this.updatePoints();
     } else {
-      if(isButton){
+      if (isButton) {
         event.target.children[0].innerText = "Sorry! Wrong answer";
         event.target.children[0].style.color = "beige";
         event.target.style.backgroundColor = "red";
-      }else{
-           event.target.innerText = "Sorry! Wrong answer!";
-      event.target.style.color = "beige";
-      event.target.parentNode.style.backgroundColor = "red";
+      } else {
+        event.target.innerText = "Sorry! Wrong answer!";
+        event.target.style.color = "beige";
+        event.target.parentNode.style.backgroundColor = "red";
       }
-   
-
     }
 
     this.answerChecked = true;
 
     setTimeout(() => {
-     if(isButton){
-      event.target.style.backgroundColor = "";
-     }else{
-      event.target.parentNode.style.backgroundColor = ""
-     }
+      if (isButton) {
+        event.target.style.backgroundColor = "";
+      } else {
+        event.target.parentNode.style.backgroundColor = "";
+      }
       this.stopMusic();
       this.startNextRound();
     }, 4000);
@@ -186,10 +183,7 @@ class Game {
   }
 
   stopMusic() {
-    // const currentSong = this.song;
-    // this.audio = new Audio(currentSong.audio);
     this.audio.pause();
-    //this.audio = this.song;
   }
 
   startNextRound() {
@@ -203,15 +197,10 @@ class Game {
         this.displayPlayerPoints();
         this.displaySongInfo();
         this.displayAnswers();
-        // this.checkAnswers();
-        // this.playMusic();
+
         btnArr.forEach((btn) => {
           btn.disabled = false; // disable button after one click
         });
-        // button.disabled = false;
-        // button.innerText = "";
-        // button.style.color = "";
-        // button.style.backgroundColor = "";
       } else {
         this.showResult();
       }
@@ -221,18 +210,16 @@ class Game {
   }
 
   showResult() {
-    console.log("Game Over");
+    if ((this.round = 5)) {
+      localStorage.setItem("pointResult", this.points);
+      const points = localStorage.getItem("pointResult");
+      console.log("STORAGE", points);
+      window.location.href = "./results.html";
+    }
   }
 }
 
 const newGame = new Game(songs);
 newGame.start();
 
-// replicating code for all 5 rounds
 
-/*
- function pauseMusic() {
-      const audio = new Audio(
-        "./songs/01_Scorpions - Rock You Like A Hurricane.mp3"
-      );
-      audio.pause(); */
