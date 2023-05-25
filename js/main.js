@@ -87,7 +87,7 @@ class Game {
     this.audio = new Audio(currentSong.audio);
     this.audio.play();
 
-    this.audio.volume = 0;
+    //this.audio.volume = 0;
   }
 
   displaySongNumber() {
