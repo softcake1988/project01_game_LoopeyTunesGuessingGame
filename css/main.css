@@ -27,6 +27,8 @@ body {
     border-radius: 0.5em;
     border: 0.1em solid beige;
     color: black
+    
+    
 }
 
 
@@ -117,6 +119,7 @@ body {
     border: 0.1em solid beige;
     background-color: black;
     color: antiquewhite;
+    font-size: medium;
 }
 
 

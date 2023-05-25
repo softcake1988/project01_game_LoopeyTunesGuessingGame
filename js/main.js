@@ -87,26 +87,27 @@ class Game {
     this.audio = new Audio(currentSong.audio);
     this.audio.play();
 
-    //this.audio.volume = 0;
+    this.audio.volume = 0;
   }
 
   displaySongNumber() {
     const currentSong = this.song;
     const songNumber = document.querySelector("#song-number");
-    songNumber.textContent = `Song ${this.round} / 5`;
+    songNumber.textContent = `SONG ${this.round} / 5`;
+    
   }
 
   displayPlayerPoints() {
     const currentSong = this.song;
     const playerPoints = document.querySelector("#player-points");
-    playerPoints.textContent = `Points: ${this.points}`;
+    playerPoints.textContent = `POINTS: ${this.points}/ 5`;
   }
 
   displaySongInfo() {
     console.log(this.song);
     const currentSong = this.song;
     const songInfo = document.querySelector(".song-info-box");
-    songInfo.textContent = `Interpret: ${currentSong.interpret} Song: ${currentSong.songTitle}`;
+    songInfo.textContent = `Interpret: ${currentSong.interpret}\nSong: ${currentSong.songTitle}`;
   }
 
   displayAnswers() {
