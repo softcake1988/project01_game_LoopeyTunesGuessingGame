@@ -3,13 +3,13 @@
 
 link: https://softcake1988.github.io/project01_game_LoopeyTunesGuessingGame/ 
 
-# page logic: 3 html files:
+### page logic: 3 html files:
 
-(1) index.html  -   start-game page
-(2) main.html   -   game page
-(3) results.html-   results & play-again page
+(1) index.html  -   start-game page<br>
+(2) main.html   -   game page<br>
+(3) results.html-   results & play-again page<br>
 
-# game description
+### game description
 
 Click on the green play button and listen in on song number one. Then click on the button with the name of your classmate of whom you think added the respective song to our spotify playlist 'LoopeyTunes'.
 
@@ -19,7 +19,7 @@ You will be directed to the next song automatically.
 
 Be aware: the audio volume/ actual start of the songs differ from song to song. That might led to a delay of the song start.
 
-# game mvp
+### game mvp
 
 MVP: (done)
 - 1 song + 4 possible answers
