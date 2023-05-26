@@ -138,7 +138,6 @@ class Game {
     btnArr.forEach((btn) => {
       btn.disabled = true; // disable button after one click
     });
-    console.log(event);
 
     if (userAnswer === currentSong.correctAnswer) {
       if (isButton) {
@@ -189,7 +188,6 @@ class Game {
   startNextRound() {
     if (this.answerChecked === true) {
       if (this.round < songs.length) {
-        console.log("hello inside next round");
         this.round++;
         this.stopMusic();
         this.song = songs[this.round - 1];
@@ -213,7 +211,7 @@ class Game {
     if ((this.round = 5)) {
       localStorage.setItem("pointResult", this.points);
       const points = localStorage.getItem("pointResult");
-      console.log("STORAGE", points);
+
       window.location.href = "./results.html";
     }
   }
@@ -221,5 +219,3 @@ class Game {
 
 const newGame = new Game(songs);
 newGame.start();
-
-

@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LoopeyTunesSpotifyQuizStartPage</title>
-    <link rel="stylesheet" href="./css/results.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="styleshee">
+    <link rel="stylesheet" href="./css/results.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="styleshee"
+    />
     <style>
-        body{
-            font-family: 'Lato', sans-serif;
-        }
+      body {
+        font-family: "Lato", sans-serif;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="content-container">
+      <img
+        id="spotify-playlist-logo"
+        src="./images/hero_loopeyTunes_spotifyList.png"
+        alt="LoopeyTunesSpotifyList"
+      />
 
-    
-        <img id="spotify-playlist-logo" src="./images/hero_loopeyTunes_spotifyList.png" alt="LoopeyTunesSpotifyList">
-      
-        <h1>ARE YOU A LoopeyTunes PRO?</h1>
+      <h1>ARE YOU A LoopeyTunes PRO?</h1>
 
-        <button id="player-points-result">
-            </button>
+      <button id="player-points-result"></button>
 
-        <div class="results-container">
+      <div class="results-container">
+        <p id="p1">
+          0-2 POINTS: <br />
+          Not too bad! Keep trying to guess the right answers!
+        </p>
+        <p id="p2">
+          3-4 POINTS: <br />
+          Well done! Either you are a lucky one or you have a good feeling for
+          your peers music taste! Try to guess all songs right!
+        </p>
+        <p id="p3">
+          5 POINTS: <br />
+          Wow! You are a real LoopeyTunesPro! You defenitely don't have to play
+          again, but you can of course. 😉
+        </p>
+      </div>
 
-            <p id="p1">
-            0-2 POINTS: <br>
-            Not too bad! Keep trying to guess the right answers!
-            </p>
-            <p id="p2">
-            3-4 POINTS: <br>
-            Well done! Either you are a lucky one or you have a good feeling for your peers music taste! Try to guess all songs right!
-            </p>
-            <p id="p3">
-            5   POINTS: <br>
-            Wow! You are a real LoopeyTunesPro! You defenitely don't have to play again, but you can of course. 😉
-            </p>
-
-        </div>
-
-      
-    <button id="play-again-btn">PLAY AGAIN</button>
-        
-    
+      <button id="play-again-btn">PLAY AGAIN</button>
     </div>
 
     <!-- <script src="./js/main.js" ></script> -->
-    <script src="./js/results.js" ></script>
-    
-</body>
+    <script src="./js/results.js"></script>
+  </body>
 </html>
